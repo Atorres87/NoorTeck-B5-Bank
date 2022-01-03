@@ -5,14 +5,12 @@ import com.noorteck.qa.pages.LoansPage;
 import com.noorteck.qa.pages.TransferPage;
 
 public class ObjInitialize extends Constants {
-	
-	 
-	
+
 	public void initializeClassObj() {
-		//initialize each page class objects here..
+		// initialize each page class objects here..
 		homeObj = new HomePage();
 		transferObj = new TransferPage();
-		loansObj= new LoansPage();
+		loansObj = new LoansPage();
 	}
 
 }

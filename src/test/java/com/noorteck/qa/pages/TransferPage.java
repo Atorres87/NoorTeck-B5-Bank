@@ -32,7 +32,7 @@ public class TransferPage extends CommonUI{
 	public TransferPage() {
 		PageFactory.initElements(driver, this);
 	}
-	public void enterOrigenAccount(String account) {
+	public void selectOriginAccount(String account) {
 		enter(originAccount, account);
 	}
 	public void enterDestinationAccount(String account) {

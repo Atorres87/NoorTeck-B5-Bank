@@ -55,18 +55,53 @@ public class LoansPage extends CommonUI {
 	public void enterName(String name) {
 		enter(enterName, name);
 	}
+
 	public void enterAddress(String address) {
 		enter(enterAddress, address);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public void selectLoanType(String selectLoanType) {
+		selectLoanType(selectLoanType);
+	}
+
+	public void yearsToPayLoan(String yearsToPay) {
+		enter(enterYearsToPayLoan, yearsToPay);
+	}
+
+	public void firstNext() {
+		click(clickNext);
+	}
+
+	public void provideAmount(String amount) {
+		enter(enterAmount, amount);
+	}
+
+	public void motherMaidenName(String madenName) {
+		enter(entermotherMaidenName, madenName);
+	}
+
+	public void SocialNumber(String social) {
+		enter(enterSsNumber, social);
+	}
+
+	public void secondNext() {
+		click(clickNextButton);
+	}
+
+	public void clickBack() {
+		click(clickBack);
+	}
+
+	public void confirm() {
+		click(clickConfirm);
+	}
+
+	public void backButton() {
+		click(clickBackbutton);
+	}
+
+	public void reset() {
+		click(clickReset);
+	}
+
 }
