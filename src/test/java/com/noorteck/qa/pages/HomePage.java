@@ -8,13 +8,13 @@ import com.noorteck.qa.utils.CommonUI;
 
 public class HomePage extends CommonUI {
 
-	@FindBy(xpath = "//*[text() = 'Transfer']")
+	@FindBy(xpath = "//a[@class='ng-star-inserted']//span[@class='label'][normalize-space()='Transfer']")
 	WebElement clickTransfer;
 
-	@FindBy(xpath = "//*[text() = 'Loans']")
+	@FindBy(xpath = "//a[@class='ng-star-inserted']//span[@class='label'][normalize-space()='Loans']")
 	WebElement clickLoan;
 
-	@FindBy(xpath = "//*[text() = 'LogOut']")
+	@FindBy(xpath = "//a[@class='ng-star-inserted']//span[@class='label'][normalize-space()='LogOut']")
 	WebElement clickLogOut;
 
 	public HomePage() {

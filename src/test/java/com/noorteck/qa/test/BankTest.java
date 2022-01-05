@@ -1,6 +1,8 @@
 package com.noorteck.qa.test;
 
-import com.noorteck.qa.pages.LoansPage;
+import org.testng.asserts.SoftAssert;
+
+import com.noorteck.qa.pages.HomePage;
 import com.noorteck.qa.pages.TransferPage;
 import com.noorteck.qa.utils.CommonUI;
 import com.noorteck.qa.utils.ObjInitialize;
@@ -10,62 +12,60 @@ public class BankTest extends ObjInitialize {
 	public static void main(String[] args) throws InterruptedException {
 		String url = "https://usdemo.vee24.com/#/transactions";
 
-		CommonUI UIObj = new CommonUI();
-		ObjInitialize Obj = new ObjInitialize();
-		BankTest bankObj = new BankTest();
-		LoansPage loansObj = new LoansPage();
-		TransferPage transferObj = new TransferPage();
+		CommonUI.openBrowser("chrome");
+		CommonUI.navigate(url);
+		initializeClassObj();
+		BankCaseOne();
+		BankCaseTwo();
 
-		UIObj.openBrowser("chrome");
-
-		UIObj.navigate(url);
-
-		bankObj.BankCaseTwo();
-
-		UIObj.quitBrowser();
+		CommonUI.quitBrowser();
 
 	}
 
-	public void BankCaseOne() throws InterruptedException {
+	public static void BankCaseOne() throws InterruptedException {
+		HomePage homeObj = new HomePage();
+		SoftAssert softAssert = new SoftAssert();
+		homeObj.clickTransfer();
+		Thread.sleep(2000);
+		TransferPage transferObj = new TransferPage();
 
-		transferObj.clickTransferFund();
-		transferObj.selectOriginAccount("Rainy Day");
-		transferObj.enterDestinationAccount("Investing");
+	    //transferObj.clickOriginAccount();
+		//transferObj.selectOriginAccount();
+		// transferObj.enterDestinationAccount("Investing");
 		transferObj.enterAmount("1000");
 		transferObj.enterSsNumber("78945612");
 		transferObj.enterPin("1234");
-
+		
 		String expectedText = "Success! Funds successfully transferred.";
 		String actualText = "Success! Funds successfully transferred.";
-		if (actualText.contains(expectedText)) {
-			System.out.println("Text verified");
-		} else {
-			System.out.println("wrong Test");
-		}
+
+		softAssert.assertEquals(expectedText, actualText);
+		Thread.sleep(1000);
 	}
 
-	public void BankCaseTwo() throws InterruptedException {
-
+	public static void BankCaseTwo() throws InterruptedException {
+		SoftAssert softAssert = new SoftAssert();
 		homeObj.clickLoan();
 		loansObj.enterName("John Cena");
-		loansObj.enterAddress("5050 nw 50 st");
-		loansObj.selectLoanType("Retirement");
+		loansObj.enterAddress("123 Java drive");
+
+		//loansObj.chooseFromDropdown("Value","Retirement");
+		
 		loansObj.yearsToPayLoan("2");
+	
 		loansObj.firstNext();
 		loansObj.provideAmount("5000");
-		loansObj.motherMaidenName("Java");
-		loansObj.SocialNumber("12345678");
+		loansObj.motherMaidenName("Kim");
+		loansObj.SocialNumber("123456778");
 		loansObj.secondNext();
 		loansObj.confirm();
 
 		String expectedText = "Submission Success";
 		String actualText = "Submission Success";
-		if (actualText.contains(expectedText)) {
-			System.out.println("Text verified");
-		} else {
-			System.out.println("wrong Test");
+		softAssert.assertEquals(expectedText, actualText);
+		Thread.sleep(2000);
 
-		}
+		softAssert.assertAll();
 
 	}
 }

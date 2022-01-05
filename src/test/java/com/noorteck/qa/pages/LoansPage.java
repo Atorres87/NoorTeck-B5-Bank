@@ -11,10 +11,10 @@ public class LoansPage extends CommonUI {
 	@FindBy(css = "#mat-input-3")
 	WebElement enterName;
 
-	@FindBy(css = "mat-input-4")
+	@FindBy(css = "#mat-input-4")
 	WebElement enterAddress;
 
-	@FindBy(xpath = "//*[@class='mat-select-placeholder ng-tns-c12-12 ng-star-inserted']")
+	@FindBy(xpath = "//mat-select[@id='mat-select-2']")
 	WebElement selectLoanType;
 
 	@FindBy(css = "#mat-input-5")
@@ -26,7 +26,7 @@ public class LoansPage extends CommonUI {
 	@FindBy(css = "#mat-input-6")
 	WebElement enterAmount;
 
-	@FindBy(css = "mat-input-7")
+	@FindBy(css = "#mat-input-7")
 	WebElement entermotherMaidenName;
 
 	@FindBy(css = "#mat-input-8")
@@ -45,7 +45,7 @@ public class LoansPage extends CommonUI {
 	WebElement clickBackbutton;
 
 	@FindBy(xpath = "//*[text()='Reset']")
-	WebElement clickReset;
+	WebElement clickReset;;
 
 	public LoansPage() {
 		PageFactory.initElements(driver, this);
@@ -60,8 +60,8 @@ public class LoansPage extends CommonUI {
 		enter(enterAddress, address);
 	}
 
-	public void selectLoanType(String selectLoanType) {
-		selectLoanType(selectLoanType);
+	public void chooseFromDropdown(String methodName, String indexValue) {
+		selectFromDropdown(selectLoanType,methodName, indexValue);
 	}
 
 	public void yearsToPayLoan(String yearsToPay) {

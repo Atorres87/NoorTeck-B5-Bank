@@ -6,15 +6,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.noorteck.qa.utils.CommonUI;
 
-public class TransferPage extends CommonUI{
+public class TransferPage extends CommonUI {
 
-	
-	@FindBy(xpath = "//*[@class = mat-select-placeholder ng-tns-c12-2 ng-star-inserted")
+	@FindBy(xpath = "(//span[@class='mat-select-placeholder ng-tns-c12-30 ng-star-inserted'])[1]")
 	WebElement originAccount;
-	
-	@FindBy(xpath = "//*[@class = 'mat-select-placeholder ng-tns-c12-4 ng-star-inserted']")
+
+	@FindBy(xpath = "(//span[@class='mat-select-placeholder ng-tns-c12-32 ng-star-inserted'])[1]")
 	WebElement destinationAccount;
-	
+
 	@FindBy(css = "#mat-input-0")
 	WebElement totalAmount;
 	
@@ -27,14 +26,14 @@ public class TransferPage extends CommonUI{
 	@FindBy(xpath ="//*[text()= 'Transfer Funds']")
 	WebElement clickTransferFund;
 	
-	//need successful message
 	
 	public TransferPage() {
 		PageFactory.initElements(driver, this);
 	}
-	public void selectOriginAccount(String account) {
-		enter(originAccount, account);
+	public void selectOriginAccount(String methodName,String account) {
+		selectFromDropdown(originAccount,methodName, account);
 	}
+	
 	public void enterDestinationAccount(String account) {
 		enter(destinationAccount, account);
 	}
@@ -50,14 +49,9 @@ public class TransferPage extends CommonUI{
 	public void clickTransferFund() {
 		click(clickTransferFund);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void clickOriginAccount() {
+		click(originAccount);
+		
+	}
+
 }
